@@ -7,9 +7,15 @@ type TextOwnProps<E extends React.ElementType> = {
   as?: E
 }
 
+
+
 type TextProps<E extends React.ElementType> = TextOwnProps<E> &
+  // this has All elements from React.ComponentProps<E> EXCEPT -> keyof TextOwnProps<E>
   Omit<React.ComponentProps<E>, keyof TextOwnProps<E>>
 
+    
+    
+    
 export const Text = <E extends React.ElementType = 'div'>({
   size,
   color,
